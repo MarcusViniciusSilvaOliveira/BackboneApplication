@@ -29,28 +29,33 @@
 
     <script src="http://backbonejs.org/backbone-min.js"></script>
 
-    <script src="/index.js"></script>
+    <script src="/Models.js"></script>
 
-    <script id="details" type="text/template">
-        <form>
-            <h2><%= Name %></h2>
-            
-            <label>Address:</label>
-            <label><%= Address %></label>
-            <br/>
+    <script src="/DataClinics.js"></script>
 
-            <label>City:</label>
-            <label><%= City %></label>
-            <br/>
-            
-            <label>Phone:</label>
-            <label><%= Phone %></label>
-            <br/>
-        </form>
-    </script>
+    <script src="/pages/ListView.js"></script>
+    <script src="/pages/DetailView.js"></script>
 
     </header>
     <body>
         <div id="content"></div>
+
+        <script id="details" type="text/template">
+            <form>
+                <h2><%= Name %></h2>
+                
+                <label>Address:</label>
+                <label><%= Address %></label>
+                <br/>
+
+                <label>City:</label>
+                <label><%= City %></label>
+                <br/>
+                
+                <label>Phone:</label>
+                <label><%= Phone %></label>
+                <br/>
+            </form>
+        </script>
     </body>
 </html>

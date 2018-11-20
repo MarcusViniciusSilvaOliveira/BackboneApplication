@@ -19,6 +19,8 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, '/scripts')));
+app.use(express.static(path.join(__dirname, '/DataBase')));
+app.use(express.static(path.join(__dirname, '/models')));
 app.use(express.static(path.join(__dirname, '/views')));
 
 app.use('/', indexRouter);
