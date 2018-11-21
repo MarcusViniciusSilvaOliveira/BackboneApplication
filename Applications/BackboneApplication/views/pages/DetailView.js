@@ -1,11 +1,11 @@
 var DetailView = Backbone.View.extend({
-    //View events
+  
   events: {
     "click #Back_Bnt": "BackToList"
   },
-  //trigged when new instance of this view is called
+  
   initialize: function (options) {
-    //Configuration of "afterRender" event to execute after render event finished          
+             
     _.bindAll(this, 'render', 'afterRender');
     var _this = this;
     this.render = _.wrap(this.render, function (render) {
@@ -14,27 +14,29 @@ var DetailView = Backbone.View.extend({
       return _this;
     });
   },
-  //Render to generate view     
+      
   render: function () {
     var template = _.template($('#details').html());
     this.$el.append(template(this.model.toJSON()));
-    this.$el.append("<button id='Back_Bnt'>Back</button>");
+    this.$el.append("<button id='Back_Bnt'>Back to main page</button>");
     return this;
   },
-  //afterRender to create new objects
+  
   afterRender: function () {
     $('#back').puibutton({
       icon: 'fa-arrow-left'
     });
     $('#content').puipanel({
-      title: "Clinic informations"
+      title: "Informations"
     });
   },
-  //Event of button to return to index
+  
   BackToList: function () {
-      
-    $('#content').empty();
-    //Instance of new index View
+
+    this.remove();
+    this.unbind();
+    $('body').append("<div id='content' ></div>");
+
     var listView = new ListView({ el: '#content' });
     listView.render();
   }
