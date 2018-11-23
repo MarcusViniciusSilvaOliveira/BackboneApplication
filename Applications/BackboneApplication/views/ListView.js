@@ -37,6 +37,11 @@ var ListView = Backbone.View.extend({
         if (val != "") 
         {
             var clinicsByName = clinics.GetByName(val);  
+
+            if(clinicsByName.models.length == 0){
+                alert("No records found!");
+            }
+
             searchClinics(clinicsByName); 
         }else{
             searchClinics(clinics);
